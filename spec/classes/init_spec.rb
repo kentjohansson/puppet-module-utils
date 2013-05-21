@@ -1,4 +1,4 @@
-equire 'spec_helper'
+require 'spec_helper'
 describe 'utils' do
 
   describe 'with parameter packages set to UNSET as a string' do
