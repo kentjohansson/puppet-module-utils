@@ -26,4 +26,20 @@ describe 'utils' do
     it { should contain_package('valid-package2').with_ensure('present') }
   end
 
+  describe 'with paramter and hiera_array enabled' do
+    let :params do
+      {
+        :packages_enable_hiera_array => 'true'
+      }
+    end
+    let :hiera_data do
+      {
+        'utils::packages' => [ 'valid-package1', 'valid-package2' ]
+      }
+    end
+
+    it { should contain_package('valid-package1').with_ensure('present') }
+    it { should contain_package('valid-package2').with_ensure('present') }
+  end
+
 end
